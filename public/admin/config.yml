@@ -1,0 +1,124 @@
+# Decap CMS 配置
+# 文档：https://decapcms.org/docs/configuration-options/
+
+# ─────────────────────────────────────────────────────────────
+# 后端：Netlify Identity + Git Gateway
+# 部署到 Netlify 后，在 Site configuration → Identity 启用 Identity
+# 并启用 Git Gateway 即可（无需额外 OAuth）。
+# ─────────────────────────────────────────────────────────────
+backend:
+  name: git-gateway
+  branch: main
+
+# 媒体文件上传目录（相对仓库根）
+media_folder: public/uploads
+# 在站点里访问媒体的公开路径
+public_folder: /uploads
+
+# 开启编辑流程：未发布草稿 → 审核中 → 已发布
+publish_mode: simple
+
+# 本地开发时可以跑 `npx decap-server`，把下面打开
+# local_backend: true
+
+collections:
+  # ─────────────────── 博客文章 ───────────────────
+  - name: posts
+    label: 博客文章
+    label_singular: 文章
+    folder: src/content/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - { name: title, label: 标题, widget: string }
+      - { name: date, label: 发布日期, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+      - name: tags
+        label: 标签
+        widget: list
+        default: []
+        hint: "输入标签后按回车新增一项"
+      - { name: summary, label: 摘要, widget: text }
+      - { name: author, label: 作者, widget: string, required: false }
+      - { name: cover, label: 封面图, widget: image, required: false, choose_url: true }
+      - { name: body, label: 正文, widget: markdown }
+
+  # ─────────────────── 作者信息 ───────────────────
+  - name: author
+    label: 作者信息
+    files:
+      - name: profile
+        label: 个人资料
+        file: src/data/author.json
+        fields:
+          - { name: name, label: 姓名, widget: string }
+          - { name: headline, label: 标语, widget: string }
+          - { name: bio, label: 自我介绍, widget: text }
+          - { name: avatar, label: 头像, widget: image, choose_url: true }
+          - { name: resumeUrl, label: 简历链接, widget: string, required: false }
+
+          - name: social
+            label: 社交链接
+            widget: list
+            fields:
+              - name: platform
+                label: 平台
+                widget: select
+                options: [github, linkedin, twitter, email, website, other]
+              - { name: href, label: 链接, widget: string, hint: "邮箱请用 mailto: 开头" }
+              - { name: label, label: 无障碍标签, widget: string, hint: "屏幕阅读器会读出这段文字" }
+
+          - name: skills
+            label: 技能
+            widget: list
+            fields:
+              - { name: name, label: 名称, widget: string }
+              - { name: icon, label: 图标标识, widget: string, required: false }
+              - name: category
+                label: 分类
+                widget: select
+                options: [language, frontend, backend, tooling, other]
+                required: false
+
+          - name: timeline
+            label: 经历时间线
+            widget: list
+            fields:
+              - { name: start, label: 开始时间, widget: string, hint: "格式 YYYY-MM，例如 2023-06" }
+              - { name: end, label: 结束时间, widget: string, hint: "格式 YYYY-MM，填 present 表示至今" }
+              - { name: title, label: 职位 / 身份, widget: string }
+              - { name: org, label: 组织 / 学校, widget: string }
+              - { name: description, label: 描述, widget: text, required: false }
+
+  # ─────────────────── 项目作品集 ───────────────────
+  - name: projects
+    label: 项目作品集
+    files:
+      - name: list
+        label: 项目列表
+        file: src/data/projects.json
+        fields:
+          - name: projects
+            label: 项目
+            widget: list
+            fields:
+              - { name: id, label: 唯一 ID, widget: string, hint: "kebab-case，例如 glass-ui-kit" }
+              - { name: name, label: 名称, widget: string }
+              - { name: description, label: 描述, widget: text }
+              - { name: cover, label: 封面图, widget: image, choose_url: true }
+              - name: tags
+                label: 标签
+                widget: list
+                default: []
+              - name: links
+                label: 相关链接
+                widget: list
+                default: []
+                fields:
+                  - { name: label, label: 显示文字, widget: string }
+                  - { name: href, label: 链接, widget: string }
+              - { name: featured, label: 精选（首页展示）, widget: boolean, default: false }
+              - { name: order, label: 排序, widget: number, value_type: int, required: false, hint: "数字小的在前" }

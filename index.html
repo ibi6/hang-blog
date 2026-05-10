@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人作品集与博客</title>
+    <script>
+      (function () {
+        try {
+          var s = localStorage.getItem("theme");
+          var m =
+            typeof window.matchMedia === "function" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var t = s === "light" || s === "dark" ? s : m ? "dark" : "light";
+          document.documentElement.classList.add(t);
+        } catch (e) {
+          /* localStorage or matchMedia unavailable */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Netlify Identity Widget：
+         访问 /admin 时，点击页面顶栏会弹出登录框；
+         登录后若当前页是 /admin 之外的，也会把用户重定向回 /admin/ -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function () {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

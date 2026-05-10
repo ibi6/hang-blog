@@ -1,0 +1,85 @@
+[
+  {
+    "id": "glass-ui-kit",
+    "name": "Glass UI Kit",
+    "description": "一套基于 Tailwind CSS 的玻璃拟态组件库，内置主题 token、暗色模式与 a11y 友好的交互基元。",
+    "cover": "https://picsum.photos/seed/glass-ui-kit/800/500",
+    "tags": ["react", "typescript", "tailwind"],
+    "links": [
+      { "label": "Live Demo", "href": "https://glass-ui-kit.example.com" },
+      { "label": "GitHub", "href": "https://github.com/linshinan/glass-ui-kit" }
+    ],
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "markdown-postmortem",
+    "name": "Markdown Postmortem",
+    "description": "以 Markdown 为数据源的团队事故复盘工具，构建期解析 frontmatter 并生成可检索的时间线视图。",
+    "cover": "https://picsum.photos/seed/markdown-postmortem/800/500",
+    "tags": ["react", "typescript", "vite", "node"],
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/linshinan/markdown-postmortem" }
+    ],
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "rusty-lint",
+    "name": "rusty-lint",
+    "description": "用 Rust 编写的轻量级 Markdown 校验器，提供 frontmatter schema、死链检测与中英文混排规则。",
+    "cover": "https://picsum.photos/seed/rusty-lint/800/500",
+    "tags": ["rust", "cli"],
+    "links": [
+      { "label": "Crates.io", "href": "https://crates.io/crates/rusty-lint" },
+      { "label": "GitHub", "href": "https://github.com/linshinan/rusty-lint" }
+    ],
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "pomodoro-os",
+    "name": "Pomodoro OS",
+    "description": "一个放在菜单栏的番茄钟应用，支持项目分组、Notion 回写与周报自动汇总。目前处于内测阶段。",
+    "cover": "https://picsum.photos/seed/pomodoro-os/800/500",
+    "tags": ["typescript", "react", "tauri"],
+    "links": [],
+    "featured": false,
+    "order": 4
+  },
+  {
+    "id": "pyscrape-weekly",
+    "name": "PyScrape Weekly",
+    "description": "用 Python 写的周刊抓取与摘要管线，从 100+ RSS 源中聚合内容并输出 Markdown 草稿。",
+    "cover": "https://picsum.photos/seed/pyscrape-weekly/800/500",
+    "tags": ["python", "cli", "automation"],
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/linshinan/pyscrape-weekly" }
+    ],
+    "featured": false,
+    "order": 5
+  },
+  {
+    "id": "edge-image-proxy",
+    "name": "Edge Image Proxy",
+    "description": "基于 Cloudflare Workers 的图片代理与优化服务，支持 AVIF/WebP 协商、签名 URL 与按需裁剪。",
+    "cover": "https://picsum.photos/seed/edge-image-proxy/800/500",
+    "tags": ["typescript", "node", "edge"],
+    "links": [
+      { "label": "Docs", "href": "https://edge-image-proxy.example.com/docs" },
+      { "label": "GitHub", "href": "https://github.com/linshinan/edge-image-proxy" }
+    ],
+    "featured": false,
+    "order": 6
+  },
+  {
+    "id": "type-safe-i18n",
+    "name": "type-safe-i18n",
+    "description": "完全基于 TypeScript 类型系统的 i18n 运行时，编译期即可检查缺失 key 与占位符类型。",
+    "cover": "https://picsum.photos/seed/type-safe-i18n/800/500",
+    "tags": ["typescript", "vite", "library"],
+    "links": [],
+    "featured": false,
+    "order": 7
+  }
+]

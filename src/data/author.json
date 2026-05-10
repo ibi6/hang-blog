@@ -1,0 +1,69 @@
+{
+  "name": "林时南",
+  "headline": "全栈工程师 · 独立开发者",
+  "bio": "我是一名来自杭州的全栈工程师，擅长 TypeScript、React 与 Node.js 生态，也喜欢在业余时间用 Rust 和 Python 做一些小工具。过去几年我主要在设计系统、开发者体验与前端性能优化上深耕，相信好的产品是由细节与品味堆砌出来的。工作之外我写技术博客、维护几个开源项目，也偶尔做一些独立产品尝试商业化。如果你也喜欢折腾、愿意交流，欢迎随时联系。",
+  "avatar": "https://api.dicebear.com/7.x/notionists/svg?seed=lshn",
+  "resumeUrl": "/resume.pdf",
+  "social": [
+    {
+      "platform": "email",
+      "href": "mailto:hello@linshinan.dev",
+      "label": "邮箱 hello@linshinan.dev"
+    },
+    {
+      "platform": "github",
+      "href": "https://github.com/linshinan",
+      "label": "林时南的 GitHub 主页"
+    },
+    {
+      "platform": "linkedin",
+      "href": "https://www.linkedin.com/in/linshinan",
+      "label": "林时南的 LinkedIn 主页"
+    },
+    {
+      "platform": "twitter",
+      "href": "https://twitter.com/linshinan",
+      "label": "林时南的 Twitter 主页"
+    }
+  ],
+  "skills": [
+    { "name": "TypeScript", "icon": "typescript", "category": "language" },
+    { "name": "React", "icon": "react", "category": "frontend" },
+    { "name": "Tailwind CSS", "icon": "tailwind", "category": "frontend" },
+    { "name": "Node.js", "icon": "nodejs", "category": "backend" },
+    { "name": "PostgreSQL", "icon": "postgres", "category": "backend" },
+    { "name": "Rust", "icon": "rust", "category": "language" },
+    { "name": "Vite", "icon": "vite", "category": "tooling" },
+    { "name": "Playwright", "icon": "playwright", "category": "tooling" }
+  ],
+  "timeline": [
+    {
+      "start": "2023-06",
+      "end": "present",
+      "title": "独立开发者 / 自由顾问",
+      "org": "自由职业",
+      "description": "专注于前端性能与设计系统咨询，维护多个开源项目，同时开发个人 SaaS 产品。"
+    },
+    {
+      "start": "2020-08",
+      "end": "2023-05",
+      "title": "高级前端工程师",
+      "org": "字节跳动 · Web Infra",
+      "description": "负责业务中台的设计系统与构建工具链，主导了从 webpack 到 Vite 的迁移与组件库升级。"
+    },
+    {
+      "start": "2018-07",
+      "end": "2020-07",
+      "title": "全栈工程师",
+      "org": "某跨境电商初创公司",
+      "description": "使用 Node.js 与 React 搭建管理后台与营销投放平台，参与从 0 到 1 的产品迭代。"
+    },
+    {
+      "start": "2014-09",
+      "end": "2018-06",
+      "title": "计算机科学与技术 学士",
+      "org": "浙江大学",
+      "description": "本科期间参与多项开源社区活动，毕业设计方向为分布式系统与 Web 安全。"
+    }
+  ]
+}
