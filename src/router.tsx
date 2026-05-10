@@ -10,6 +10,7 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { Home } from "./pages/Home";
+import { AdminRedirect } from "./pages/AdminRedirect";
 
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -28,6 +29,9 @@ export const router = createBrowserRouter([
       { path: "blog", element: <BlogList /> },
       { path: "blog/:slug", element: <BlogPost /> },
       { path: "contact", element: <Contact /> },
+      // CMS 后台：把 /admin 和 /admin/* 重定向到真正的入口文件
+      { path: "admin", element: <AdminRedirect /> },
+      { path: "admin/*", element: <AdminRedirect /> },
       { path: "*", element: <NotFound /> },
     ],
   },

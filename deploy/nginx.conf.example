@@ -1,0 +1,45 @@
+# 个人作品集与博客 —— nginx 部署参考
+# 假设：
+#   - 构建产物在 /var/www/hang-blog/dist
+#   - 你已经有一个 server { ... } 块（比如 80 端口或 443）
+
+server {
+    listen 80;
+    server_name your-domain.com;  # ← 改成你的域名
+    root /var/www/hang-blog/dist;
+    index index.html;
+
+    # 1) 静态资源（JS/CSS/图片）开长缓存
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
+
+    # 2) CMS 后台：/admin/ 目录请求补上 index.html
+    #    别走 SPA fallback，否则会被主站 404 吞掉
+    location = /admin {
+        return 301 /admin/;
+    }
+    location = /admin/ {
+        try_files /admin/index.html =404;
+    }
+    location /admin/ {
+        try_files $uri $uri/index.html =404;
+    }
+
+    # 3) CMS 上传的图片
+    location /uploads/ {
+        try_files $uri =404;
+    }
+
+    # 4) SPA 回退：其他 URL 都给主站入口
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 5) 关闭 dotfiles 访问（.git、.env 等）
+    location ~ /\. {
+        deny all;
+    }
+}

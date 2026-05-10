@@ -1,14 +1,20 @@
-# Decap CMS 配置
+# Decap / Sveltia CMS 配置
 # 文档：https://decapcms.org/docs/configuration-options/
+#       https://github.com/sveltia/sveltia-cms
 
 # ─────────────────────────────────────────────────────────────
-# 后端：Netlify Identity + Git Gateway
-# 部署到 Netlify 后，在 Site configuration → Identity 启用 Identity
-# 并启用 Git Gateway 即可（无需额外 OAuth）。
+# 后端配置
+# - 本地开发：`local_backend: true` 会让 CMS 通过 decap-server 代理
+#   直接读写本地真实文件（本机 http://localhost:8081），跳过登录。
+# - 线上部署：代理不存在时，CMS 会回退到 `backend` 配置的真实后端。
+#   目前设的是 GitHub，线上需额外部署 OAuth 代理（部署时再说）。
 # ─────────────────────────────────────────────────────────────
 backend:
-  name: git-gateway
+  name: github
+  repo: ibi6/hang-blog
   branch: main
+
+local_backend: true
 
 # 媒体文件上传目录（相对仓库根）
 media_folder: public/uploads
@@ -18,8 +24,9 @@ public_folder: /uploads
 # 开启编辑流程：未发布草稿 → 审核中 → 已发布
 publish_mode: simple
 
-# 本地开发时可以跑 `npx decap-server`，把下面打开
-# local_backend: true
+# ─────────────────────────────────────────────────────────────
+# 下面这几行已经在上面配置过，不再需要（保留原有 collections 配置）
+# ─────────────────────────────────────────────────────────────
 
 collections:
   # ─────────────────── 博客文章 ───────────────────

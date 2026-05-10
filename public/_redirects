@@ -1,5 +1,0 @@
-# Decap CMS 后台（静态目录，优先于 SPA 回退）
-/admin/*       /admin/:splat       200
-
-# SPA 回退：所有其他路径交给 index.html
-/*             /index.html         200

@@ -5,11 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>内容管理后台</title>
+    <style>
+      /* 加载时的玻璃拟态遮罩，避免白屏闪烁 */
+      :root {
+        color-scheme: light dark;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      }
+      #boot {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        background: linear-gradient(135deg, #f5f0ff 0%, #e6f0ff 100%);
+        color: #4c1d95;
+        z-index: 9999;
+        transition: opacity 0.35s ease;
+      }
+      #boot.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #boot .pill {
+        padding: 0.75rem 1.25rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+      }
+      #boot .spinner {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 3px solid rgba(139, 92, 246, 0.2);
+        border-top-color: #8b5cf6;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      @media (prefers-color-scheme: dark) {
+        #boot {
+          background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+          color: #c4b5fd;
+        }
+        #boot .pill {
+          background: rgba(30, 27, 75, 0.5);
+          border-color: rgba(196, 181, 253, 0.2);
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Netlify Identity 登录弹窗 -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <!-- Decap CMS 主体 -->
-    <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
+    <div id="boot">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="pill">内容管理后台加载中…</div>
+    </div>
+
+    <!-- Sveltia CMS：Decap CMS 的现代化重写，配置完全兼容 -->
+    <script type="module" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+
+    <script>
+      // Sveltia 挂载后移除开场动画
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const boot = document.getElementById("boot");
+          if (boot) {
+            boot.classList.add("fade-out");
+            setTimeout(() => boot.remove(), 400);
+          }
+        }, 600);
+      });
+    </script>
   </body>
 </html>
