@@ -1,7 +1,7 @@
 {
-  "name": "林时南",
-  "headline": "全栈工程师 · 独立开发者",
-  "bio": "我是一名来自杭州的全栈工程师，擅长 TypeScript、React 与 Node.js 生态，也喜欢在业余时间用 Rust 和 Python 做一些小工具。过去几年我主要在设计系统、开发者体验与前端性能优化上深耕，相信好的产品是由细节与品味堆砌出来的。工作之外我写技术博客、维护几个开源项目，也偶尔做一些独立产品尝试商业化。如果你也喜欢折腾、愿意交流，欢迎随时联系。",
+  "name": "Hang",
+  "headline": "大三网络工程",
+  "bio": "我是一名大三的学生，擅长 TypeScript、React 与 Node.js 生态，也喜欢在业余时间用codex Claude code等ai 做一些小工具。学习之外我写技术博客、维护几个开源项目，也偶尔做一些独立产品尝试商业化。如果你也喜欢折腾、愿意交流，欢迎随时联系。",
   "avatar": "https://api.dicebear.com/7.x/notionists/svg?seed=lshn",
   "resumeUrl": "/resume.pdf",
   "social": [
@@ -16,9 +16,9 @@
       "label": "林时南的 GitHub 主页"
     },
     {
-      "platform": "linkedin",
-      "href": "https://www.linkedin.com/in/linshinan",
-      "label": "林时南的 LinkedIn 主页"
+      "platform": "email",
+      "href": "jiujiula99@gmail.com",
+      "label": "谷歌邮箱"
     },
     {
       "platform": "twitter",
@@ -27,14 +27,46 @@
     }
   ],
   "skills": [
-    { "name": "TypeScript", "icon": "typescript", "category": "language" },
-    { "name": "React", "icon": "react", "category": "frontend" },
-    { "name": "Tailwind CSS", "icon": "tailwind", "category": "frontend" },
-    { "name": "Node.js", "icon": "nodejs", "category": "backend" },
-    { "name": "PostgreSQL", "icon": "postgres", "category": "backend" },
-    { "name": "Rust", "icon": "rust", "category": "language" },
-    { "name": "Vite", "icon": "vite", "category": "tooling" },
-    { "name": "Playwright", "icon": "playwright", "category": "tooling" }
+    {
+      "name": "TypeScript",
+      "icon": "typescript",
+      "category": "language"
+    },
+    {
+      "name": "React",
+      "icon": "react",
+      "category": "frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "tailwind",
+      "category": "frontend"
+    },
+    {
+      "name": "Node.js",
+      "icon": "nodejs",
+      "category": "backend"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "postgres",
+      "category": "backend"
+    },
+    {
+      "name": "Rust",
+      "icon": "rust",
+      "category": "language"
+    },
+    {
+      "name": "Vite",
+      "icon": "vite",
+      "category": "tooling"
+    },
+    {
+      "name": "Playwright",
+      "icon": "playwright",
+      "category": "tooling"
+    }
   ],
   "timeline": [
     {
